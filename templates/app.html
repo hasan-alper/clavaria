@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Clavaria | Mushroom Classifier</title>
+	</head>
+	<body>
+		<form method="POST">
+			<p>cap-shape</p>
+			<label for="cap-shape-x">Convex</label>
+			<input type="radio" id="cap-shape-x" name="cap-shape" value="x" checked /> <br />
+			<label for="cap-shape-f">Flat</label>
+			<input type="radio" id="cap-shape-f" name="cap-shape" value="f" /> <br />
+			<label for="cap-shape-k">Knobbed</label>
+			<input type="radio" id="cap-shape-k" name="cap-shape" value="k" /> <br />
+			<label for="cap-shape-b">Bell</label>
+			<input type="radio" id="cap-shape-b" name="cap-shape" value="b" /> <br />
+			<label for="cap-shape-s">Sunken</label>
+			<input type="radio" id="cap-shape-s" name="cap-shape" value="s" /> <br />
+			<label for="cap-shape-c">Conical</label>
+			<input type="radio" id="cap-shape-c" name="cap-shape" value="c" /> <br />
+
+			<p>cap-surface</p>
+			<label for="cap-surface-y">Scaly</label>
+			<input type="radio" id="cap-surface-y" name="cap-surface" value="y" checked /> <br />
+			<label for="cap-surface-s">Smooth</label>
+			<input type="radio" id="cap-surface-s" name="cap-surface" value="s" /> <br />
+			<label for="cap-surface-f">Fibrous</label>
+			<input type="radio" id="cap-surface-f" name="cap-surface" value="f" /> <br />
+			<label for="cap-surface-g">Grooves</label>
+			<input type="radio" id="cap-surface-g" name="cap-surface" value="g" /> <br />
+
+			<p>cap-color</p>
+			<label for="cap-color-n">Brown</label>
+			<input type="radio" id="cap-color-n" name="cap-color" value="n" checked /> <br />
+			<label for="cap-color-g">Gray</label>
+			<input type="radio" id="cap-color-g" name="cap-color" value="g" /> <br />
+			<label for="cap-color-e">Red</label>
+			<input type="radio" id="cap-color-e" name="cap-color" value="e" /> <br />
+			<label for="cap-color-y">Yellow</label>
+			<input type="radio" id="cap-color-y" name="cap-color" value="y" /> <br />
+			<label for="cap-color-w">White</label>
+			<input type="radio" id="cap-color-w" name="cap-color" value="w" /> <br />
+			<label for="cap-color-b">Buff</label>
+			<input type="radio" id="cap-color-b" name="cap-color" value="b" /> <br />
+			<label for="cap-color-p">Pink</label>
+			<input type="radio" id="cap-color-p" name="cap-color" value="p" /> <br />
+			<label for="cap-color-c">Cinnamon</label>
+			<input type="radio" id="cap-color-c" name="cap-color" value="c" /> <br />
+
+			<p>gill-spacing</p>
+			<label for="gill-spacing-c">Close</label>
+			<input type="radio" id="gill-spacing-c" name="gill-spacing" value="c" checked /> <br />
+			<label for="gill-spacing-w">Crowded</label>
+			<input type="radio" id="gill-spacing-w" name="gill-spacing" value="w" /> <br />
+
+			<p>gill-color</p>
+			<label for="gill-color-p">Pink</label>
+			<input type="radio" id="gill-color-p" name="gill-color" value="p" checked /> <br />
+			<label for="gill-color-w">White</label>
+			<input type="radio" id="gill-color-w" name="gill-color" value="w" /> <br />
+			<label for="gill-color-n">Brown</label>
+			<input type="radio" id="gill-color-n" name="gill-color" value="n" /> <br />
+			<label for="gill-color-g">Gray</label>
+			<input type="radio" id="gill-color-g" name="gill-color" value="g" /> <br />
+			<label for="gill-color-h">Chocolate</label>
+			<input type="radio" id="gill-color-h" name="gill-color" value="h" /> <br />
+			<label for="gill-color-u">Purple</label>
+			<input type="radio" id="gill-color-u" name="gill-color" value="u" /> <br />
+			<label for="gill-color-k">Black</label>
+			<input type="radio" id="gill-color-k" name="gill-color" value="k" /> <br />
+			<label for="gill-color-y">Yellow</label>
+			<input type="radio" id="gill-color-y" name="gill-color" value="y" /> <br />
+			<label for="gill-color-r">Green</label>
+			<input type="radio" id="gill-color-r" name="gill-color" value="r" /> <br />
+
+			<p>stalk-shape</p>
+			<label for="stalk-shape-t">Tapering</label>
+			<input type="radio" id="stalk-shape-t" name="stalk-shape" value="t" checked /> <br />
+			<label for="stalk-shape-e">Enlarging</label>
+			<input type="radio" id="stalk-shape-e" name="stalk-shape" value="e" /> <br />
+
+			<p>stalk-root</p>
+			<label for="stalk-root-b">Bulbous</label>
+			<input type="radio" id="stalk-root-b" name="stalk-root" value="b" checked /> <br />
+			<label for="stalk-root-e">Equal</label>
+			<input type="radio" id="stalk-root-e" name="stalk-root" value="e" /> <br />
+			<label for="stalk-root-c">Club</label>
+			<input type="radio" id="stalk-root-c" name="stalk-root" value="c" /> <br />
+			<label for="stalk-root-r">Rooted</label>
+			<input type="radio" id="stalk-root-r" name="stalk-root" value="r" /> <br />
+
+			<input type="submit" value="Submit" />
+		</form>
+
+		<p>{{ prediction }}</p>
+	</body>
+</html>
