@@ -91,10 +91,14 @@
 			<input type="radio" id="stalk-root-c" name="stalk-root" value="c" /> <br />
 			<label for="stalk-root-r">Rooted</label>
 			<input type="radio" id="stalk-root-r" name="stalk-root" value="r" /> <br />
-
-			<input type="submit" value="Submit" />
 		</form>
 
-		<p>{{ prediction }}</p>
+		<p id="prediction"></p>
 	</body>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script>
+		api_url = '{{ url_for("background_process")}}';
+	</script>
+	<script src="{{ url_for('static', filename='js/app.js') }}"></script>
 </html>
