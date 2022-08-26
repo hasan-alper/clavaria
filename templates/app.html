@@ -5,95 +5,283 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Clavaria | Mushroom Classifier</title>
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/app.css') }}"">
 	</head>
 	<body>
-		<form method="POST">
-			<p>cap-shape</p>
-			<label for="cap-shape-x">Convex</label>
-			<input type="radio" id="cap-shape-x" name="cap-shape" value="x" checked /> <br />
-			<label for="cap-shape-f">Flat</label>
-			<input type="radio" id="cap-shape-f" name="cap-shape" value="f" /> <br />
-			<label for="cap-shape-k">Knobbed</label>
-			<input type="radio" id="cap-shape-k" name="cap-shape" value="k" /> <br />
-			<label for="cap-shape-b">Bell</label>
-			<input type="radio" id="cap-shape-b" name="cap-shape" value="b" /> <br />
-			<label for="cap-shape-s">Sunken</label>
-			<input type="radio" id="cap-shape-s" name="cap-shape" value="s" /> <br />
-			<label for="cap-shape-c">Conical</label>
-			<input type="radio" id="cap-shape-c" name="cap-shape" value="c" /> <br />
+		<section>
+			<h1>Clavaria - Mushroom Classifier</h1>
+			<p>A machine learning web application to determine if a certain mushroom is edible or poisonous.</p>
+			<p>Feel free to play around with the features below!</p>
+			<h2 id="prediction"></h2>
+			<form method="POST">
+				<label class="button-group-labels">Cap Shape</label>
+				<div id="cap-shape-buttons">
+					<input type="radio" id="cap-shape-x" name="cap-shape" value="x" checked />
+					<label for="cap-shape-x">
+						<div class="img-wrapper">
+							<img src="static/imgs/cap-shape/convex.png" />
+						</div>
+						<div>Convex</div>
+					</label>
+					<input type="radio" id="cap-shape-f" name="cap-shape" value="f" />
+					<label for="cap-shape-f">
+						<div class="img-wrapper">
+							<img src="static/imgs/cap-shape/flat.png" />
+						</div>
+						<div>Flat</div>
+					</label>
+					<input type="radio" id="cap-shape-k" name="cap-shape" value="k" />
+					<label for="cap-shape-k">
+						<div class="img-wrapper">
+							<img src="static/imgs/cap-shape/knobbed.png" />
+						</div>
+						<div>Knobbed</div>
+					</label>
+					<input type="radio" id="cap-shape-b" name="cap-shape" value="b" />
+					<label for="cap-shape-b">
+						<div class="img-wrapper">
+							<img src="static/imgs/cap-shape/bell.png" />
+						</div>
+						<div>Bell</div>
+					</label>
+					<input type="radio" id="cap-shape-s" name="cap-shape" value="s" />
+					<label for="cap-shape-s">
+						<div class="img-wrapper">
+							<img src="static/imgs/cap-shape/sunken.png" />
+						</div>
+						<div>Sunken</div>
+					</label>
+					<input type="radio" id="cap-shape-c" name="cap-shape" value="c" />
+					<label for="cap-shape-c">
+						<div class="img-wrapper">
+							<img src="static/imgs/cap-shape/conical.png" />
+						</div>
+						<div>Conical</div>
+					</label>
+				</div>
 
-			<p>cap-surface</p>
-			<label for="cap-surface-y">Scaly</label>
-			<input type="radio" id="cap-surface-y" name="cap-surface" value="y" checked /> <br />
-			<label for="cap-surface-s">Smooth</label>
-			<input type="radio" id="cap-surface-s" name="cap-surface" value="s" /> <br />
-			<label for="cap-surface-f">Fibrous</label>
-			<input type="radio" id="cap-surface-f" name="cap-surface" value="f" /> <br />
-			<label for="cap-surface-g">Grooves</label>
-			<input type="radio" id="cap-surface-g" name="cap-surface" value="g" /> <br />
+				<label class="button-group-labels">Cap Surface</label>
+				<input type="radio" id="cap-surface-y" name="cap-surface" value="y" checked />
+				<label for="cap-surface-y">
+					<div class="img-wrapper">
+						<img src="static/imgs/cap-surface/scaly.png" />
+					</div>
+					<div>Scaly</div>
+				</label>
+				<input type="radio" id="cap-surface-s" name="cap-surface" value="s" />
+				<label for="cap-surface-s">
+					<div class="img-wrapper">
+						<img src="static/imgs/cap-surface/smooth.png" />
+					</div>
+					<div>Smooth</div>
+				</label>
+				<input type="radio" id="cap-surface-f" name="cap-surface" value="f" />
+				<label for="cap-surface-f">
+					<div class="img-wrapper">
+						<img src="static/imgs/cap-surface/fibrous.png" />
+					</div>
+					<div>Fibrous</div>
+				</label>
+				<input type="radio" id="cap-surface-g" name="cap-surface" value="g" />
+				<label for="cap-surface-g">
+					<div class="img-wrapper">
+						<img src="static/imgs/cap-surface/grooves.png" />
+					</div>
+					<div>Grooves</div>
+				</label>
 
-			<p>cap-color</p>
-			<label for="cap-color-n">Brown</label>
-			<input type="radio" id="cap-color-n" name="cap-color" value="n" checked /> <br />
-			<label for="cap-color-g">Gray</label>
-			<input type="radio" id="cap-color-g" name="cap-color" value="g" /> <br />
-			<label for="cap-color-e">Red</label>
-			<input type="radio" id="cap-color-e" name="cap-color" value="e" /> <br />
-			<label for="cap-color-y">Yellow</label>
-			<input type="radio" id="cap-color-y" name="cap-color" value="y" /> <br />
-			<label for="cap-color-w">White</label>
-			<input type="radio" id="cap-color-w" name="cap-color" value="w" /> <br />
-			<label for="cap-color-b">Buff</label>
-			<input type="radio" id="cap-color-b" name="cap-color" value="b" /> <br />
-			<label for="cap-color-p">Pink</label>
-			<input type="radio" id="cap-color-p" name="cap-color" value="p" /> <br />
-			<label for="cap-color-c">Cinnamon</label>
-			<input type="radio" id="cap-color-c" name="cap-color" value="c" /> <br />
+				<label class="button-group-labels">Cap Color</label>
+				<input type="radio" id="cap-color-n" name="cap-color" value="n" checked />
+				<label for="cap-color-n">
+					<div class="img-wrapper">
+						<img src="static/imgs/cap-color/brown.png" />
+					</div>
+					<div>Brown</div>
+				</label>
+				<input type="radio" id="cap-color-g" name="cap-color" value="g" />
+				<label for="cap-color-g">
+					<div class="img-wrapper">
+						<img src="static/imgs/cap-color/gray.png" />
+					</div>
+					<div>Gray</div>
+				</label>
+				<input type="radio" id="cap-color-e" name="cap-color" value="e" />
+				<label for="cap-color-e">
+					<div class="img-wrapper">
+						<img src="static/imgs/cap-color/red.png" />
+					</div>
+					<div>Red</div>
+				</label>
+				<input type="radio" id="cap-color-y" name="cap-color" value="y" />
+				<label for="cap-color-y">
+					<div class="img-wrapper">
+						<img src="static/imgs/cap-color/yellow.png" />
+					</div>
+					<div>Yellow</div>
+				</label>
+				<input type="radio" id="cap-color-w" name="cap-color" value="w" />
+				<label for="cap-color-w">
+					<div class="img-wrapper">
+						<img src="static/imgs/cap-color/white.png" />
+					</div>
+					<div>White</div>
+				</label>
+				<input type="radio" id="cap-color-b" name="cap-color" value="b" />
+				<label for="cap-color-b">
+					<div class="img-wrapper">
+						<img src="static/imgs/cap-color/buff.png" />
+					</div>
+					<div>Buff</div>
+				</label>
+				<input type="radio" id="cap-color-p" name="cap-color" value="p" />
+				<label for="cap-color-p">
+					<div class="img-wrapper">
+						<img src="static/imgs/cap-color/pink.png" />
+					</div>
+					<div>Pink</div>
+				</label>
+				<input type="radio" id="cap-color-c" name="cap-color" value="c" />
+				<label for="cap-color-c">
+					<div class="img-wrapper">
+						<img src="static/imgs/cap-color/cinnamon.png" />
+					</div>
+					<div>Cinnamon</div>
+				</label>
 
-			<p>gill-spacing</p>
-			<label for="gill-spacing-c">Close</label>
-			<input type="radio" id="gill-spacing-c" name="gill-spacing" value="c" checked /> <br />
-			<label for="gill-spacing-w">Crowded</label>
-			<input type="radio" id="gill-spacing-w" name="gill-spacing" value="w" /> <br />
+				<label class="button-group-labels">Gill Spacing</label>
+				<input type="radio" id="gill-spacing-c" name="gill-spacing" value="c" checked />
+				<label for="gill-spacing-c">
+					<div class="img-wrapper">
+						<img src="static/imgs/gill-spacing/close.png" />
+					</div>
+					<div>Close</div>
+				</label>
+				<input type="radio" id="gill-spacing-w" name="gill-spacing" value="w" />
+				<label for="gill-spacing-w">
+					<div class="img-wrapper">
+						<img src="static/imgs/gill-spacing/crowded.png" />
+					</div>
+					<div>Crowded</div>
+				</label>
 
-			<p>gill-color</p>
-			<label for="gill-color-p">Pink</label>
-			<input type="radio" id="gill-color-p" name="gill-color" value="p" checked /> <br />
-			<label for="gill-color-w">White</label>
-			<input type="radio" id="gill-color-w" name="gill-color" value="w" /> <br />
-			<label for="gill-color-n">Brown</label>
-			<input type="radio" id="gill-color-n" name="gill-color" value="n" /> <br />
-			<label for="gill-color-g">Gray</label>
-			<input type="radio" id="gill-color-g" name="gill-color" value="g" /> <br />
-			<label for="gill-color-h">Chocolate</label>
-			<input type="radio" id="gill-color-h" name="gill-color" value="h" /> <br />
-			<label for="gill-color-u">Purple</label>
-			<input type="radio" id="gill-color-u" name="gill-color" value="u" /> <br />
-			<label for="gill-color-k">Black</label>
-			<input type="radio" id="gill-color-k" name="gill-color" value="k" /> <br />
-			<label for="gill-color-y">Yellow</label>
-			<input type="radio" id="gill-color-y" name="gill-color" value="y" /> <br />
-			<label for="gill-color-r">Green</label>
-			<input type="radio" id="gill-color-r" name="gill-color" value="r" /> <br />
+				<label class="button-group-labels">Gill Color</label>
+				<input type="radio" id="gill-color-p" name="gill-color" value="p" checked />
+				<label for="gill-color-p">
+					<div class="img-wrapper">
+						<img src="static/imgs/gill-color/pink.png" />
+					</div>
+					<div>Pink</div>
+				</label>
+				<input type="radio" id="gill-color-w" name="gill-color" value="w" />
+				<label for="gill-color-w">
+					<div class="img-wrapper">
+						<img src="static/imgs/gill-color/white.png" />
+					</div>
+					<div>White</div>
+				</label>
+				<input type="radio" id="gill-color-n" name="gill-color" value="n" />
+				<label for="gill-color-n">
+					<div class="img-wrapper">
+						<img src="static/imgs/gill-color/brown.png" />
+					</div>
+					<div>Brown</div>
+				</label>
+				<input type="radio" id="gill-color-g" name="gill-color" value="g" />
+				<label for="gill-color-g">
+					<div class="img-wrapper">
+						<img src="static/imgs/gill-color/gray.png" />
+					</div>
+					<div>Gray</div>
+				</label>
+				<input type="radio" id="gill-color-h" name="gill-color" value="h" />
+				<label for="gill-color-h">
+					<div class="img-wrapper">
+						<img src="static/imgs/gill-color/chocolate.png" />
+					</div>
+					<div>Chocolate</div>
+				</label>
+				<input type="radio" id="gill-color-u" name="gill-color" value="u" />
+				<label for="gill-color-u">
+					<div class="img-wrapper">
+						<img src="static/imgs/gill-color/purple.png" />
+					</div>
+					<div>Purple</div>
+				</label>
+				<input type="radio" id="gill-color-k" name="gill-color" value="k" />
+				<label for="gill-color-k">
+					<div class="img-wrapper">
+						<img src="static/imgs/gill-color/black.png" />
+					</div>
+					<div>black</div>
+				</label>
+				<input type="radio" id="gill-color-y" name="gill-color" value="y" />
+				<label for="gill-color-y">
+					<div class="img-wrapper">
+						<img src="static/imgs/gill-color/yellow.png" />
+					</div>
+					<div>Yellow</div>
+				</label>
+				<input type="radio" id="gill-color-r" name="gill-color" value="r" />
+				<label for="gill-color-r">
+					<div class="img-wrapper">
+						<img src="static/imgs/gill-color/green.png" />
+					</div>
+					<div>Green</div>
+				</label>
 
-			<p>stalk-shape</p>
-			<label for="stalk-shape-t">Tapering</label>
-			<input type="radio" id="stalk-shape-t" name="stalk-shape" value="t" checked /> <br />
-			<label for="stalk-shape-e">Enlarging</label>
-			<input type="radio" id="stalk-shape-e" name="stalk-shape" value="e" /> <br />
+				<label class="button-group-labels">Stalk Shape</label>
+				<input type="radio" id="stalk-shape-t" name="stalk-shape" value="t" checked />
+				<label for="stalk-shape-t">
+					<div class="img-wrapper">
+						<img id="tapering" src="static/imgs/stalk-shape/tapering.png" />
+					</div>
+					<div>Tapering</div>
+				</label>
+				<input type="radio" id="stalk-shape-e" name="stalk-shape" value="e" />
+				<label for="stalk-shape-e">
+					<div class="img-wrapper">
+						<img id="enlarging" src="static/imgs/stalk-shape/enlarging.png" />
+					</div>
+					<div>Enlarging</div>
+				</label>
 
-			<p>stalk-root</p>
-			<label for="stalk-root-b">Bulbous</label>
-			<input type="radio" id="stalk-root-b" name="stalk-root" value="b" checked /> <br />
-			<label for="stalk-root-e">Equal</label>
-			<input type="radio" id="stalk-root-e" name="stalk-root" value="e" /> <br />
-			<label for="stalk-root-c">Club</label>
-			<input type="radio" id="stalk-root-c" name="stalk-root" value="c" /> <br />
-			<label for="stalk-root-r">Rooted</label>
-			<input type="radio" id="stalk-root-r" name="stalk-root" value="r" /> <br />
-		</form>
+				<label class="button-group-labels">Stalk Root</label>
+				<input type="radio" id="stalk-root-b" name="stalk-root" value="b" checked />
+				<label for="stalk-root-b">
+					<div class="img-wrapper">
+						<img src="static/imgs/stalk-root/bulbous.png" />
+					</div>
+					<div>Bulbous</div>
+				</label>
+				<input type="radio" id="stalk-root-e" name="stalk-root" value="e" />
+				<label for="stalk-root-e">
+					<div class="img-wrapper">
+						<img src="static/imgs/stalk-root/equal.png" />
+					</div>
+					<div>Equal</div>
+				</label>
+				<input type="radio" id="stalk-root-c" name="stalk-root" value="c" />
+				<label for="stalk-root-c">
+					<div class="img-wrapper">
+						<img src="static/imgs/stalk-root/club.png" />
+					</div>
+					<div>Club</div>
+				</label>
+				<input type="radio" id="stalk-root-r" name="stalk-root" value="r" />
+				<label for="stalk-root-r">
+					<div class="img-wrapper">
+						<img src="static/imgs/stalk-root/rooted.png" />
+					</div>
+					<div>Rooted</div>
+				</label>
+			</form>
 
-		<p id="prediction"></p>
+			<label class="button-group-labels">Additional Info</label>
+			<p style="color: #505050">
+				The model was trained on <a href="https://www.kaggle.com/datasets/uciml/mushroom-classification" target="_blank">mushroom classification dataset</a>, using a decision tree classifier. It has an accuracy of 99%. The code is
+				located <a href="https://github.com/hasan-alper/clavaria" target="_blank">here</a> on GitHub. This project was made by Hasan Alper Aydın over a 4-day span in August 2022.
+			</p>
+		</section>
 	</body>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>

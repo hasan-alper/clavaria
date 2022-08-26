@@ -1,0 +1,156 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik&display=swap");
+
+:root {
+	--blue: #92d9d0;
+	--light: #f9efd9;
+	--orange: #ff9d59;
+}
+
+body {
+	display: flex;
+	justify-content: center;
+	font-family: "Rubik", sans-serif;
+	background-size: 300% 300%;
+	animation: AnimateBG 10s ease infinite;
+	user-select: none;
+	margin: 0;
+}
+
+section {
+	display: flex;
+	flex-direction: column;
+	background-color: var(--light);
+	box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 30px;
+	border-radius: 2rem;
+	margin: 2rem;
+	padding: 2rem;
+	max-width: 40.23rem;
+}
+
+h1 {
+	margin-bottom: 1.5rem;
+	font-size: 2rem;
+}
+
+p {
+	margin: 0 0 0.5rem 0;
+	line-height: 1.4rem;
+}
+
+a {
+	color: var(--orange);
+	text-decoration: none;
+}
+
+.img-wrapper {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 3.5rem;
+	height: 3.5rem;
+}
+
+img {
+	height: 100%;
+	width: 100%;
+	object-fit: contain;
+}
+
+input[type="radio"] {
+	position: absolute;
+	left: -9999px;
+	width: 0;
+	height: 0;
+	visibility: hidden;
+}
+
+input[type="radio"] + label {
+	position: relative;
+	display: inline-flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0.5rem;
+	width: 5rem;
+	height: 5rem;
+	font-size: 12px;
+	line-height: 20px;
+	letter-spacing: 1px;
+	margin-bottom: 8px;
+	margin-right: 4px;
+	text-align: center;
+	border-radius: 1rem;
+	overflow: hidden;
+	cursor: pointer;
+	text-transform: uppercase;
+	color: var(--orange);
+	border: 2px solid var(--orange);
+	-webkit-transition: all 200ms linear;
+	transition: all 200ms linear;
+}
+
+input[type="radio"]:last-of-type + label {
+	margin-bottom: 0;
+}
+
+input[type="radio"]:not(:checked) + label {
+	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+}
+
+input[type="radio"]:checked + label {
+	background-color: var(--orange);
+	color: var(--light);
+	box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+input[type="radio"]:not(:checked) + label:hover {
+	box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.button-group-labels {
+	font-size: 1.1rem;
+	display: block;
+	margin: 1rem 0 0.5rem;
+}
+
+#tapering {
+	height: 60%;
+	width: 60%;
+}
+
+#enlarging {
+	height: 60%;
+	width: 60%;
+}
+
+#stalk-root-b + label,
+#stalk-root-e + label,
+#stalk-root-c + label,
+#stalk-root-r + label {
+	height: 8rem;
+}
+
+#stalk-root-b + label .img-wrapper,
+#stalk-root-e + label .img-wrapper,
+#stalk-root-c + label .img-wrapper,
+#stalk-root-r + label .img-wrapper {
+	height: 6.5rem;
+}
+
+@keyframes AnimateBG {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+@media screen and (max-width: 500px) {
+	section {
+		margin: 1rem;
+		padding: 1rem;
+	}
+}
